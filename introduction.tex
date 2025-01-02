@@ -239,147 +239,147 @@ Create a program that reads a year, determines if it is a leap year, and outputs
 
 (Rough) Example program (C++): leap.cc
 
-%\begin{codebox}
-%// Is it every 4 years?
-%#include <iostream>
-%using namespace std;
-%int main() {
-%    int year;
-%    while (cin >> year) { // cin is automatically converted to bool, so loop as long as input can be read
-%      if (year % 4 == 0)
-%        cout << 366 << endl;
-%      else
-%        cout << 365 << endl;
-%    }
-%}
-%\end{codebox}
-%
-%\paragraph{Compilation}
-%
-%(As mentioned above, the \$ symbol indicates a command input to the terminal)
-%
-%In the case of C++:
-%\begin{terminal}
-%$ g++ -Wall leap.cc
-%\end{terminal}
-%
-%In the case of Java:
-%\begin{terminal}
-%$ javac Main.java
-%\end{terminal}
+\begin{cbox}
+// Is it every 4 years?
+#include <iostream>
+using namespace std;
+int main() {
+    int year;
+    while (cin >> year) { // cin is automatically converted to bool, so loop as long as input can be read
+      if (year % 4 == 0)
+        cout << 366 << endl;
+      else
+        cout << 365 << endl;
+    }
+}
+\end{cbox}
 
-%\paragraph{Execution Example}
-%Italics indicate input from the keyboard. To terminate, press Ctrl and type c or d. This operation is denoted as \^{}C or \^{}D.
-%
-%\begin{terminal}
-%$ ./a.out
-%\textit{2004}
-%366
-%\textit{1999}
-%365
-%\textit{1900}
-%366
-%\textit{2000}
-%366
-%\^{}D
-%\end{terminal}
-%
-%\paragraph{Testing with Files}
-%Typing on the keyboard every time you run the program is cumbersome, so we want to automate it.
-%Therefore, we will explain testing using redirection and files.
-%It is desirable to learn this at an early stage.
-%
-%Create correct input and output examples with an editor, and check the contents with the \texttt{cat} command:
-%\begin{terminal}
-%$ cat years.input
-%2004
-%1999
-%1900
-%2000
-%$ cat years.output
-%366
-%365
-%365
-%366
-%\end{terminal}
-%
-%Execution using \index{redirection} (reading from a file instead of keyboard input):
-%\begin{terminal}
-%$ ./a.out < years.input
-%366
-%365
-%366
-%366
-%\end{terminal}
-%
-%Saving the execution result to a file (writing to a file instead of displaying it on the screen):
-%\begin{terminal}
-%$ ./a.out < years.input > test-output
-%$ cat test-output
-%366
-%365
-%366
-%366
-%\end{terminal}
-%
-%Automatic comparison using \index{diff}:
-%\begin{terminal}
-%$ diff -u test-output years.output
-%--- years.output        Fri Oct 14 10:53:52 2005
-%+++ test-output Fri Oct 14 10:53:56 2005
-%@@ -1,4 +1,4 @@
-% 366
-% 365
-%-365
-%+366
-% 366
-%\end{terminal}
-%It tells us that the 4th line is different.
-%
-%\begin{itembox}[l]{References:}
-%\begin{itemize}
-%\item HWB 15 Commands\\
-%  \url{http://hwb.ecc.u-tokyo.ac.jp/wp/information-2/cui/}
-%\item HWB 14.4 File Operations Using Commands\\
-% \url{http://hwb.ecc.u-tokyo.ac.jp/wp/information-2/filesystem/cui-fs/}
-%\end{itemize}
-%\end{itembox}
-%
-%\subsection{Downloading Judge Data and Running it Locally}\label{run-judge-data}
-%When you submit a program, it may result in \index{Wrong Answer}, \index{Time Limit Exceeded}, or \index{Runtime Error} instead of Accepted.
-%
-%Suppose you are solving a problem called \texttt{ITP1\_4\_D} and you get a Wrong Answer.
-%
-%\includegraphics[width=.9\linewidth]{2.png}
-%
-%The number 18/20 near the center means that you answered correctly up to the 18th test case and failed on the 19th. You can click on that part, which is a hyperlink, to see the details.
-%
-%\includegraphics[width=.7\linewidth]{3.png}
-%
-%Furthermore, if you click on the line \texttt{Case \#19:}, you can see the actual data (depending on the problem).
-%
-%\includegraphics[width=.9\linewidth]{4.png}
-%
-%Let's try this data locally.
-%Since the data is too large to copy and paste, first click on the \texttt{in19.txt} part to download it.
-%Depending on your environment and browser, it will be saved in your download folder with a name like \texttt{ITP1\_4\_D\_in19.txt}. Execute it by redirection as appropriate.
-%
-%\begin{terminal}
-%$ ./a.out < ~/Downloads/ITP1_4_D_in19.txt 
-%28 999997 724134219  
-%\end{terminal}
-%
-%Also, this time it is obvious at a glance that there is a difference between the program's output and the Judge Output, but in general, it is difficult to compare numbers with many digits like 5019101515 by eye (you may not notice even if one character is different), so it is better to download it and compare it with the \texttt{diff} command.
-%
-%Save the execution result to a file (write to a file instead of displaying it on the screen):
-%\begin{terminal}
-%$ ./a.out < sample-input.txt > my-output.txt
-%$ cat my-output.txt
-%1 17 37
-%\end{terminal}
-%
-%Compare the two files:
-%\begin{terminal}
-%$ diff -u sample-output.txt my-output.txt
-%\end{terminal}
-%(Output will only be displayed if there are differences)
+\paragraph{Compilation}
+
+(As mentioned above, the \$ symbol indicates a command input to the terminal)
+
+In the case of C++:
+\begin{terminal}
+$ g++ -Wall leap.cc
+\end{terminal}
+
+In the case of Java:
+\begin{terminal}
+$ javac Main.java
+\end{terminal}
+
+\paragraph{Execution Example}
+Italics indicate input from the keyboard. To terminate, press Ctrl and type c or d. This operation is denoted as \^{}C or \^{}D.
+
+\begin{terminal}
+$ ./a.out
+\textit{2004}
+366
+\textit{1999}
+365
+\textit{1900}
+366
+\textit{2000}
+366
+\^{}D
+\end{terminal}
+
+\paragraph{Testing with Files}
+Typing on the keyboard every time you run the program is cumbersome, so we want to automate it.
+Therefore, we will explain testing using redirection and files.
+It is desirable to learn this at an early stage.
+
+Create correct input and output examples with an editor, and check the contents with the \texttt{cat} command:
+\begin{terminal}
+$ cat years.input
+2004
+1999
+1900
+2000
+$ cat years.output
+366
+365
+365
+366
+\end{terminal}
+
+Execution using \index{redirection} (reading from a file instead of keyboard input):
+\begin{terminal}
+$ ./a.out < years.input
+366
+365
+366
+366
+\end{terminal}
+
+Saving the execution result to a file (writing to a file instead of displaying it on the screen):
+\begin{terminal}
+$ ./a.out < years.input > test-output
+$ cat test-output
+366
+365
+366
+366
+\end{terminal}
+
+Automatic comparison using \index{diff}:
+\begin{terminal}
+$ diff -u test-output years.output
+--- years.output        Fri Oct 14 10:53:52 2005
++++ test-output Fri Oct 14 10:53:56 2005
+@@ -1,4 +1,4 @@
+ 366
+ 365
+-365
++366
+ 366
+\end{terminal}
+It tells us that the 4th line is different.
+
+\begin{itembox}[l]{References:}
+\begin{itemize}
+\item HWB 15 Commands\\
+  \url{http://hwb.ecc.u-tokyo.ac.jp/wp/information-2/cui/}
+\item HWB 14.4 File Operations Using Commands\\
+ \url{http://hwb.ecc.u-tokyo.ac.jp/wp/information-2/filesystem/cui-fs/}
+\end{itemize}
+\end{itembox}
+
+\subsection{Downloading Judge Data and Running it Locally}\label{run-judge-data}
+When you submit a program, it may result in \index{Wrong Answer}, \index{Time Limit Exceeded}, or \index{Runtime Error} instead of Accepted.
+
+Suppose you are solving a problem called \texttt{ITP1\_4\_D} and you get a Wrong Answer.
+
+\includegraphics[width=.9\linewidth]{2.png}
+
+The number 18/20 near the center means that you answered correctly up to the 18th test case and failed on the 19th. You can click on that part, which is a hyperlink, to see the details.
+
+\includegraphics[width=.7\linewidth]{3.png}
+
+Furthermore, if you click on the line \texttt{Case \#19:}, you can see the actual data (depending on the problem).
+
+\includegraphics[width=.9\linewidth]{4.png}
+
+Let's try this data locally.
+Since the data is too large to copy and paste, first click on the \texttt{in19.txt} part to download it.
+Depending on your environment and browser, it will be saved in your download folder with a name like \texttt{ITP1\_4\_D\_in19.txt}. Execute it by redirection as appropriate.
+
+\begin{terminal}
+$ ./a.out < ~/Downloads/ITP1_4_D_in19.txt 
+28 999997 724134219  
+\end{terminal}
+
+Also, this time it is obvious at a glance that there is a difference between the program's output and the Judge Output, but in general, it is difficult to compare numbers with many digits like 5019101515 by eye (you may not notice even if one character is different), so it is better to download it and compare it with the \texttt{diff} command.
+
+Save the execution result to a file (write to a file instead of displaying it on the screen):
+\begin{terminal}
+$ ./a.out < sample-input.txt > my-output.txt
+$ cat my-output.txt
+1 17 37
+\end{terminal}
+
+Compare the two files:
+\begin{terminal}
+$ diff -u sample-output.txt my-output.txt
+\end{terminal}
+(Output will only be displayed if there are differences)
