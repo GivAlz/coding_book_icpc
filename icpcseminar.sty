@@ -7,8 +7,8 @@
 \cornersize{0.01}
 \usepackage{longtable}
 \usepackage{makeidx}
-\usepackage{ulem} % Replaces udline.sty
-\usepackage{tikz} % Replaces pxpgfmark.sty
+\usepackage{udline} % Replaces udline.sty
+\usepackage{pxpgfmark}
 \usetikzlibrary{shadows}
 
 \newcommand{\emphasizedunderline}[1]{\emphasizedphp{\uline{#1}}} % \cemphl --> \emphasizedunderline
@@ -26,7 +26,7 @@
 \newcommand{\cplusplus}[1]{\graytext{#1}}
 
 %%% index
-\newcommand{\jindex}[2]{\emphasized{#1}\index{#2@#1}} % \jindex --> \jindex
+\newcommand{\jindex}[2]{\begin{CJK}{UTF8}{min}\textnormal{#1}\end{CJK}\index{#2@\begin{CJK}{UTF8}{min}#1\end{CJK}}}
 \newcommand{\eindex}[1]{\emph{#1}\index{#1}}
 \newcommand{\tindex}[1]{\texttt{#1}\index{#1}}
 
@@ -70,30 +70,6 @@
       \vskip\FrameSep
     }}%
 }}
-%\newcommand\LabFrame[5]{%
-%    \fboxrule=\FrameRule
-%    \fboxsep=-\errorsize
-%    \textcolor{#1}{%
-%    \fbox{%
-%      \vbox{\nobreak
-%      \advance\FrameSep\errorsize
-%      \begingroup
-%        \advance\baselineskip\FrameSep
-%        \hrule height \baselineskip
-%        \nobreak
-%        \vskip-\baselineskip
-%      \endgroup
-%      \vskip 0.5\FrameSep
-%      \hbox {\hskip\FrameSep \strut
-%        \textcolor{TitleColor}{\textbf{#2\hfill #3\hfill#4}}\hskip\FrameSep}%
-%      \nobreak \nointerlineskip
-%      \vskip 1.3\FrameSep
-%      \hbox {\hskip\FrameSep
-%        \normalcolor #5%
-%        \hskip\FrameSep}%
-%      \vskip\FrameSep
-%    }}%
-%}}
 \definecolor{TitleColor}{rgb}{.0,.0,.0}
 
 %\definecolor{pboxcolor}{rgb}{0.5,0.5,0.9}
@@ -110,7 +86,7 @@
   \def\MidFrameCommand{\LabFrame{#5}{}{}{#1}}%
   \def\LastFrameCommand{\LabFrame{#5}{}{}{#1}}%
   \MakeFramed{\advance\hsize-\width \FrameRestore}
-}{\endMakeFramed} 
+}{\endMakeFramed}
 
 \newenvironment{pbox}[2]%
 {\begin{contlabelframe}{Problem}{#1}{#2}{pboxcolor}} % Changed "問題" to "Problem"
@@ -124,7 +100,7 @@
 % todo: literate
 \lstset{framerule=1pt,rulecolor=\color{lightgray},basicstyle=\ttfamily,numbers=left,frame=lines,emphstyle={\color{ired}\textbf},emphstyle={[2]\color{iblue}\textbf},emphstyle={[3]\color{white}},xleftmargin=3em,xrightmargin=3em,texcl}
 
-\def\FrameCommand{\textcolor{lightgray}{\vrule width 1zw} \hspace*{-8pt}}
+\def\FrameCommand{\textcolor{lightgray}{\vrule width 1pt} \hspace*{-8pt}}
 \lstnewenvironment{terminal}[1][]
 {\MakeFramed {\advance\hsize-\width \FrameRestore}\lstset{language=sh,numbers=right,frame=lines,moredelim=[is][\itshape]{|}{|},morekeywords={git,ssh,gdb,./a.out,gcc,diff,mkdir,ls,end,elsif,def,python3},deletekeywords={type,set,test,in,for},basicstyle=\ttfamily,#1}\small}
 {\endMakeFramed}
@@ -165,9 +141,6 @@
 \lstset{xleftmargin=2\codelabelwidth,framerule=.5pt,rulecolor=\color{dgrey},language=java,morekeywords={System,Main,Scanner,nextInt,println},#1}\small}
 {}
 
-% tipsbox
-\graphicspath{/home/kaneko/lib/conf/sty/img}
-%
 \newenvironment{tipsbox}[1]%
 {\begin{minipage}{.95\linewidth}\begin{center}\begin{itembox}[l]{\raisebox{-1ex}{\includegraphics[width=4ex]{img/box/bulb_on.pdf}} #1}}
 {\end{itembox}\end{center}\end{minipage}}
