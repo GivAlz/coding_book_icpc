@@ -1,19 +1,17 @@
 %%% -*- coding: utf-8 -*-
-\usepackage{listings,jlisting}
+\usepackage{listings}
 \usepackage{arydshln}
 \usepackage{times}
-\input{jpncolor}
+\usepackage{xcolor} % Replaces jpncolor.sty
 \usepackage{icpccommon}
 \cornersize{0.01}
 \usepackage{longtable}
 \usepackage{makeidx}
-\usepackage{udline}
-\usepackage{pxpgfmark}
-
-\newcommand{\cemphl}[1]{\cemphp{\ul{#1}}}
-
+\usepackage{ulem} % Replaces udline.sty
+\usepackage{tikz} % Replaces pxpgfmark.sty
 \usetikzlibrary{shadows}
 
+\newcommand{\emphasizedunderline}[1]{\emphasizedphp{\uline{#1}}} % \cemphl --> \emphasizedunderline
 
 \def\arrow{
   (10.75:1.1) -- (6.5:1) arc (6.25:120:1) [rounded corners=0.5] --
@@ -28,7 +26,7 @@
 \newcommand{\cplusplus}[1]{\graytext{#1}}
 
 %%% index
-\newcommand{\jindex}[2]{\cemph{#1}\index{#2@#1}}
+\newcommand{\jindex}[2]{\emphasized{#1}\index{#2@#1}} % \jindex --> \jindex
 \newcommand{\eindex}[1]{\emph{#1}\index{#1}}
 \newcommand{\tindex}[1]{\texttt{#1}\index{#1}}
 
@@ -103,7 +101,7 @@
 %\definecolor{psboxcolor}{rgb}{0.9,0.6,0.6}
 \colorlet{psboxcolor}{igreen}
 
-\newenvironment{contlabelframe}[5][\Frame@Lab\ 続き]{%
+\newenvironment{contlabelframe}[5][\Frame@Lab\ continued]{%  % Changed "続き" to "continued"
   % #1 optional continuation label,
   % #2 class, #3 title, #4 cite, #5 color
   \def\Frame@Lab{#2}%
@@ -115,11 +113,11 @@
 }{\endMakeFramed} 
 
 \newenvironment{pbox}[2]%
-{\begin{contlabelframe}{問題}{#1}{#2}{pboxcolor}}
+{\begin{contlabelframe}{Problem}{#1}{#2}{pboxcolor}} % Changed "問題" to "Problem"
 {\end{contlabelframe}}
 
 \newenvironment{psbox}[2]%
-{\begin{contlabelframe}{例題}{#1}{#2}{psboxcolor}}
+{\begin{contlabelframe}{Example}{#1}{#2}{psboxcolor}} % Changed "例題" to "Example"
 {\end{contlabelframe}}
 
 %%% cbox, c11box, rbox, terminal
@@ -181,6 +179,3 @@
 \newenvironment{warningbox}[1]%
 {\begin{minipage}{.95\linewidth}\begin{center}\begin{itembox}[l]{\raisebox{-1.5ex}{\includegraphics[height=6ex]{img/box/1391088123.pdf}} #1}}
 {\end{itembox}\end{center}\end{minipage}}
-
-
-
