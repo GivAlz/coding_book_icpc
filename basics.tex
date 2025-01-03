@@ -1233,8 +1233,8 @@ Simplification: By removing specifics such as the gymnasium or time, the problem
 \paragraph{Intuition and Considerations}
 
 \begin{itemize}
-    \item Is it sufficient to simply adopt requests from the left? \dingrightsymbol{} Not necessarily (there are counterexamples).
-    \item Short line segments are less likely to overlap with others. Is it sufficient to adopt requests starting with the shortest line segments? \dingrightsymbol{} Not necessarily (there are counterexamples).
+    \item Is it sufficient to simply adopt requests from the left? \dingright{} Not necessarily (there are counterexamples).
+    \item Short line segments are less likely to overlap with others. Is it sufficient to adopt requests starting with the shortest line segments? \dingright{} Not necessarily (there are counterexamples).
 \end{itemize}
 
 \paragraph{Correct Algorithm}
@@ -1289,7 +1289,7 @@ int solve() {
     sort(C, C+N); // Sort by the earliest start day of the shift
     int /*Cow number*/i = 0, /*Start day of the next shift*/t = 1, /*Number of cows hired*/c = 0;
     while (i<N && t<=T) {
-        int best = 0;　// End day of the next cow to be hired
+        int best = 0; // End day of the next cow to be hired
         while (i<N && C[i].first <= t) {
             ... // If the end day of cow i is later than best, update best
             ++i;
@@ -2300,7 +2300,7 @@ The call relationship can be visualized as follows. In the figure, the red chara
 
 \begin{center}
 \begin{forest}
-  sn edges
+  snedges
   [\vbox{\hbox{\textcolor{ired}{D}BACEGF}\hbox{ABC\textcolor{ired}{D}EFG}}
   [\vbox{\hbox{\textcolor{ired}{B}AC}\hbox{A\textcolor{ired}{B}C}}
     [A][C]]
@@ -3999,7 +3999,7 @@ Trees are used in various applications, including:
 
 \begin{center}
   \begin{forest}
-sn edges [animal,s sep=15mm [amphibian [frog]] [reptile] [mammal [cat][dog]]]
+snedges [animal,s sep=15mm [amphibian [frog]] [reptile] [mammal [cat][dog]]]
   \end{forest}
 \end{center}
 
@@ -5796,10 +5796,10 @@ int main() {
 
 \begin{pybox}
 import heapq
-NV,NE,R = map(int,input().split()) # NXでXの個数を表した
-Inf = 1001001001 # 全頂点を通るパスより大きな値
+NV,NE,R = map(int,input().split()) # NX represents the count of X
+Inf = 1001001001 # A value larger than any path that traverses all vertices
 E = [tuple(map(int,input().split())) for _ in range(NE)]
-# 初期化
+# Initialization
 D = [Inf for _ in range(NV)]
 D[R] = 0
 Q = []
