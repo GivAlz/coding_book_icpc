@@ -1,5 +1,5 @@
 \documentclass[report]{book}
-\newcommand{\lastedit}{\texttt{Time-stamp: <2019-07-17 00:13:14 kaneko>}}
+\newcommand{\lastedit}{\texttt{Time-stamp: <2025-01-04 00:00:15 Giovanni Alzetta>}}
 \setlength{\voffset}{-0.5in}
 \setlength{\textwidth}{\paperwidth}
 \addtolength{\textwidth}{-2in}
@@ -29,7 +29,6 @@
 \excludecomment{versionoutside}
 \includecomment{versionbeta}
 
-%\AtBeginShipoutFirst{\special{pdf:tounicode EUC-UCS2}} % Removed: This is specific to Japanese encoding
 \definecolor{iblue}{rgb}{0.363,0.387,0.617}
 \definecolor{imagenta}{rgb}{0.453,0.254,0.598}
 \definecolor{ilinkex}{rgb}{0.254,0.273,0.434}
@@ -47,7 +46,7 @@ urlcolor=ilinkex,
 pdfstartview={FitH -32768},
 pdftitle={A Tour of Programming for Problem Solving (2019)},
 pdfsubject={},
-pdfauthor={Tomoyuki Kaneko},
+pdfauthor={Tomoyuki Kaneko, Giovanni Alzetta},
 pdfkeywords={}
 ]{hyperref}
 
@@ -80,12 +79,11 @@ pdfkeywords={}
 
 \graphicspath{{figs/}}
 
-%\newcommand{\aojidnew}[1]{\url{https://onlinejudge.u-aizu.ac.jp/\#/problems/#1}} % Removed: URL is not needed
 \newcommand{\aojidold}[1]{\url{http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=#1&lang=jp}}
 \newcommand{\aojid}[1]{\aojidold{#1}}%\\\aojidnew{#1}
 
 \title{A Tour of Programming for Problem Solving}
-\author{Public Version (CC BY 4.0) Tomoyuki Kaneko (kaneko@acm.org)}
+\author{English Translation (CC BY 4.0) of the original text by Tomoyuki Kaneko (kaneko@acm.org)}
 \date{}
 
 \makeindex
@@ -103,6 +101,17 @@ In order to learn programming and algorithms, it is useful not only to read text
 If you understand the basic syntax of a programming language, it is expected that you will develop the ability to write programs without hints, while understanding the flow of methods by following the hints, and gaining experience such as testing the correctness of programs with input/output data. This document itself is still under development in various aspects, but since there are few readily available materials at present, it has been made public since 2013 in the hope that it may be useful.
 \end{abstract}
 \end{versionoutside}
+
+This text is an automated translation of an original document authored by tkaneko.
+
+The translation was produced using the Gemini 2.0 translation engine, followed by manual revisions to the LaTeX code to rectify incompatibilities.
+
+This translation should be considered a preliminary experimental output.
+
+Specifically, please note that a figure is absent from the Interpolation chapter,
+and some text sections may be duplicated or unnecessary.
+
+While the material may be of informational value, the translation is offered in a rough, unedited state and warrants substantial revision.
 
 
 \tableofcontents
